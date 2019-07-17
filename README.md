@@ -1,2 +1,1 @@
-# samples
-https://blogs.felixu.top
+# 学习用
