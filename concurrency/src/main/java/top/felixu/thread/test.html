@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>测试</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+
+<style>
+    .btn {background:#f10215;width:100px;height:30px;text-align:center;line-height:30px;border:none;color:#fff;}
+    .popup-dom {position:fixed;width:100%;height:100%;top:0;left:0;z-index:999;display:none;}
+    .popup-tips {position:absolute;top:0;right:0;left:0;bottom:0;width:200px;height:38px;line-height:38px;margin:auto;background:#000000;opacity:0.6;color:#fff;text-align:center;border-radius:3px;}
+</style>
+
+<div class="wrapper">
+    <button class="btn">按钮</button>
+</div>
+
+<script>
+    $(function () {
+        $(".btn").bind("click",function () {
+            tips("已复制");
+        })
+
+        function tips(text) {
+            $(".popup-dom").remove();
+            var html="<div class=\"popup-dom\">\n" +
+                "     <div class=\"popup-tips\">"+text+"</div>\n" +
+                "</div>"
+            $("body").append(html);
+            $(".popup-dom").slideToggle();
+            window.setTimeout("$(\".popup-dom\").slideToggle();", 3000);
+        }
+    })
+</script>
+
+</body>
+</html>
