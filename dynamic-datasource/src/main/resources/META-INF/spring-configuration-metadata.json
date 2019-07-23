@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "test",
+      "type": "top.felixu.properties.DynamicDataSourceProperties",
+      "sourceType": "top.felixu.properties.DynamicDataSourceProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "test.datasource",
+      "type": "java.util.List<top.felixu.entity.DataSourceEntity>",
+      "sourceType": "top.felixu.properties.DynamicDataSourceProperties"
+    }
+  ],
+  "hints": []
+}

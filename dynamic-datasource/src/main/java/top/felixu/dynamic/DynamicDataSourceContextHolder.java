@@ -1,7 +1,7 @@
 package top.felixu.dynamic;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 /**
  * 动态数据存储
@@ -19,7 +19,7 @@ public class DynamicDataSourceContextHolder {
     /**
      * 存储所有的数据源id
      */
-    public static final Set<String> DATA_SOURCE_IDS = new HashSet<>();
+    public static final Set<String> DATA_SOURCE_IDS = new ConcurrentSkipListSet<>();
 
     /**
      * 设置当前线程的目标数据源
