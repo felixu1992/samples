@@ -11,6 +11,7 @@
     <modules>
         <module>data-structure</module>
         <module>concurrency</module>
+        <module>dynamic-datasource</module>
     </modules>
 
     <properties>
