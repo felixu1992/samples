@@ -3,11 +3,10 @@ package top.felixu.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestAttributes;
-import top.felixu.dynamic.DynamicDataSourceRegister;
+import top.felixu.dynamic.DynamicDataSourceRegister1;
 import top.felixu.entity.DataSourceEntity;
 import top.felixu.entity.User;
 import top.felixu.service.UserService;
-import top.felixu.utils.ApplicationUtils;
 import top.felixu.utils.HttpUtils;
 
 /**
@@ -32,8 +31,7 @@ public class TestController {
 
     @PostMapping("/add")
     public Object addDataSource(@RequestBody DataSourceEntity entity) {
-        DynamicDataSourceRegister register = ApplicationUtils.getBean(DynamicDataSourceRegister.class);
-        register.hook(entity);
+        DynamicDataSourceRegister1.hook(entity);
         return entity;
     }
 
