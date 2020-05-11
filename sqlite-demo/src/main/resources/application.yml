@@ -1,0 +1,16 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    url: jdbc:sqlite:E:/self/samples/sqlite-demo/db/demo.sqlite3
+    username:
+    password:
+    driver-class-name: org.sqlite.JDBC
+
+# MyBatis≈‰÷√
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: top.felixu.sqlite.entity
+  configuration:
+    use-generated-keys: true
+    map-underscore-to-camel-case: true
