@@ -7,8 +7,7 @@ spring:
     password:
     driver-class-name: org.sqlite.JDBC
 
-# MyBatis≈‰÷√
-mybatis:
+mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
   type-aliases-package: top.felixu.sqlite.entity
   configuration:
