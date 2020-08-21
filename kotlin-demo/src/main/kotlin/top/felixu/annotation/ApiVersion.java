@@ -1,5 +1,7 @@
 package top.felixu.annotation;
 
+import org.springframework.core.annotation.AliasFor;
+
 import java.lang.annotation.*;
 
 /**
@@ -11,5 +13,6 @@ import java.lang.annotation.*;
 @Documented
 public @interface ApiVersion {
 
-    String version();
+    @AliasFor
+    String version() default "";
 }
