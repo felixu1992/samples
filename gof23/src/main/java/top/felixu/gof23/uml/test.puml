@@ -1,0 +1,14 @@
+@startuml
+skinparam classAttributeIconSize 0
+interface List {
++ add()
+}
+abstract class AbstractList {
++ add()
+}
+class ArrayList {
++ add()
+}
+ArrayList --|> AbstractList
+AbstractList --|> List
+@enduml
