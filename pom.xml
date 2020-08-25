@@ -8,10 +8,12 @@
     <artifactId>samples</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
+
     <modules>
         <module>data-structure</module>
         <module>concurrency</module>
         <module>dynamic-datasource</module>
+        <module>kotlin-sample</module>
     </modules>
 
     <properties>

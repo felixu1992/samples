@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>top.felixu</groupId>
-    <artifactId>kotlin-demo</artifactId>
+    <artifactId>kotlin-sample</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>kotlin-demo</name>
+    <name>kotlin-sample</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -42,10 +42,15 @@
             <artifactId>guava</artifactId>
             <version>27.1-jre</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.17</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
