@@ -7,5 +7,7 @@ package top.felixu.exception
 enum class ErrorCode(val code: Int, val msg: String) {
     OK(1, "success"),
     FAIL(-1, "unknown.error"),
-    PARAM_ERROR(100, "param.error")
+    PARAM_ERROR(100, "param.error"),
+
+    EMPLOYEE_NOT_FOUND(1000, "employee.not.found")
 }
