@@ -1,6 +1,7 @@
 package top.felixu.entity
 
 import javax.persistence.*
+import javax.validation.constraints.NotBlank
 
 /**
  * @author felixu
@@ -14,8 +15,10 @@ data class Employee(
     var id: Int = 1,
 
     @Column(nullable = false)
+    @field: NotBlank
     var name: String = "",
 
     @field: Column(nullable = false)
+    @field: NotBlank
     var workerNo: String = ""
 )

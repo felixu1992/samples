@@ -14,9 +14,13 @@ import top.felixu.repository.EmployeeRepository
 class EmployeeService(private val employeeRepository: EmployeeRepository) {
 
     fun findEmployeeByName(name: String): Employee {
-        val optional = employeeRepository.findEmployeeByName(name)
+        val optional = employeeRepository.findEmployeeByNameLike(name)
         if (!optional.isPresent)
             throw BusinessException(ErrorCode.EMPLOYEE_NOT_FOUND)
         return optional.get()
+    }
+
+    fun addEmployee(employee: Employee) {
+        employeeRepository.save(employee)
     }
 }
