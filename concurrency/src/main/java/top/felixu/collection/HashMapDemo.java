@@ -61,6 +61,6 @@ public class HashMapDemo {
     static String toBinary(int num, int digits) {
         int value = 1 << digits | num;
         String bs = Integer.toBinaryString(value);
-        return  bs.substring(1);
+        return bs.substring(1);
     }
 }

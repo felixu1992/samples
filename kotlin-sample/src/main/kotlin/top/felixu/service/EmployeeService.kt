@@ -1,5 +1,7 @@
 package top.felixu.service
 
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
 import top.felixu.entity.Employee
 import top.felixu.exception.BusinessException
@@ -22,5 +24,9 @@ class EmployeeService(private val employeeRepository: EmployeeRepository) {
 
     fun addEmployee(employee: Employee) {
         employeeRepository.save(employee)
+    }
+
+    fun findAll(): Page<Employee> {
+        return employeeRepository.findAll(PageRequest.of(1, 10))
     }
 }

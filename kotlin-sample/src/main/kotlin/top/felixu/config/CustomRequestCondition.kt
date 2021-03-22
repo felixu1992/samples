@@ -29,7 +29,7 @@ class CustomRequestCondition(val version: String, val key: String) : AbstractReq
     }
 
     override fun getContent(): Collection<*> {
-       return patterns
+        return patterns
     }
 
     override fun getToStringInfix(): String {

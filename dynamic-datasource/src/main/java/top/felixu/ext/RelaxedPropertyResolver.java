@@ -5,6 +5,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.env.PropertyResolver;
 import org.springframework.core.env.PropertySourcesPropertyResolver;
 import org.springframework.util.Assert;
+
 import java.util.Map;
 
 /**
@@ -13,7 +14,6 @@ import java.util.Map;
  * @author Phillip Webb
  * @author felixu
  * @date 2019.07.23
- *
  * @see RelaxedNames
  */
 public class RelaxedPropertyResolver implements PropertyResolver {
@@ -105,6 +105,7 @@ public class RelaxedPropertyResolver implements PropertyResolver {
      * Return a Map of all values from all underlying properties that start with the
      * specified key. NOTE: this method can only be used if the underlying resolver is a
      * {@link ConfigurableEnvironment}.
+     *
      * @param keyPrefix the key prefix used to filter results
      * @return a map of all sub properties starting with the specified key prefix.
      * @see PropertySourceUtils#getSubProperties
@@ -120,8 +121,9 @@ public class RelaxedPropertyResolver implements PropertyResolver {
     /**
      * Return a property resolver for the environment, preferring one that ignores
      * unresolvable nested placeholders.
+     *
      * @param environment the source environment
-     * @param prefix the prefix
+     * @param prefix      the prefix
      * @return a property resolver for the environment
      * @since 1.4.3
      */

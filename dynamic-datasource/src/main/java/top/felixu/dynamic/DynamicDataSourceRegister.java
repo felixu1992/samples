@@ -139,7 +139,7 @@ public class DynamicDataSourceRegister {
      * 被环境持有
      * 绑定
      *
-     * @param env  当前运行环境
+     * @param env        当前运行环境
      * @param properties 数据源配置实体
      */
     private void doRegister(Environment env, DataSourceEntity properties) {
@@ -152,7 +152,7 @@ public class DynamicDataSourceRegister {
      * 将当前数据源放到变量 targetDataSources 中
      * 并将 id 保存到 {@link DynamicDataSourceContextHolder#DATA_SOURCE_IDS} 中
      *
-     * @param id 数据源 id
+     * @param id         数据源 id
      * @param dataSource 数据源
      */
     private void dataSourceHold(String id, DataSource dataSource) {
@@ -188,16 +188,16 @@ public class DynamicDataSourceRegister {
      * 向当前环境中绑定数据源
      *
      * @param dataSource 需要被绑定的数据源
-     * @param env 当前运行环境
+     * @param env        当前运行环境
      */
-    private void bind(DataSource dataSource, Environment env){
+    private void bind(DataSource dataSource, Environment env) {
         RelaxedDataBinder dataBinder = new RelaxedDataBinder(dataSource);
 //        dataBinder.setValidator(new LocalValidatorFactory().run(this.applicationContext));
         dataBinder.setConversionService(conversionService);
         dataBinder.setIgnoreNestedProperties(false);
         dataBinder.setIgnoreInvalidFields(false);
         dataBinder.setIgnoreUnknownFields(true);
-        if(dataSourcePropertyValues == null){
+        if (dataSourcePropertyValues == null) {
             Map<String, Object> rpr = new RelaxedPropertyResolver(env, DataSourceConstants.Prefix.PREFIX)
                     .getSubProperties(DataSourceConstants.Prefix.SUB_PREFIX);
             Map<String, Object> values = new HashMap<>(rpr);

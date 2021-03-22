@@ -10,15 +10,15 @@ import javax.validation.constraints.NotBlank
 @Entity
 data class Employee(
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    var id: Int = 1,
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        var id: Int = 1,
 
-    @Column(nullable = false)
-    @field: NotBlank
-    var name: String = "",
+        @Column(nullable = false)
+        @field: NotBlank
+        var name: String = "",
 
-    @field: Column(nullable = false)
-    @field: NotBlank
-    var workerNo: String = ""
+        @field: Column(nullable = false)
+        @field: NotBlank
+        var workerNo: String = ""
 )

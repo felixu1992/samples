@@ -23,8 +23,7 @@ public class InetAddressEditor extends PropertyEditorSupport {
     public void setAsText(String text) throws IllegalArgumentException {
         try {
             setValue(InetAddress.getByName(text));
-        }
-        catch (UnknownHostException ex) {
+        } catch (UnknownHostException ex) {
             throw new IllegalArgumentException("Cannot locate host", ex);
         }
     }

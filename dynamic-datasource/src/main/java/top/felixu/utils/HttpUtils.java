@@ -98,7 +98,7 @@ public class HttpUtils {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < varr.length; i++) {
                 String var = varr[i];
-                if (i != 0){
+                if (i != 0) {
                     builder.append(",");
                 }
                 builder.append(var);
@@ -119,6 +119,7 @@ public class HttpUtils {
 
     /**
      * 获取客户端真实ip
+     *
      * @param request request
      * @return ip
      */

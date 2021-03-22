@@ -30,6 +30,7 @@ class RelaxedConversionService implements ConversionService {
 
     /**
      * Create a new {@link RelaxedConversionService} instance.
+     *
      * @param conversionService and option root conversion service
      */
     RelaxedConversionService(ConversionService conversionService) {
@@ -69,8 +70,7 @@ class RelaxedConversionService implements ConversionService {
         if (this.conversionService != null) {
             try {
                 return this.conversionService.convert(source, sourceType, targetType);
-            }
-            catch (ConversionFailedException ex) {
+            } catch (ConversionFailedException ex) {
                 // Ignore and try the additional converters
             }
         }
@@ -81,7 +81,7 @@ class RelaxedConversionService implements ConversionService {
      * Clone of Spring's package private StringToEnumConverterFactory, but ignoring the
      * case of the source.
      */
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     private static class StringToEnumIgnoringCaseConverterFactory
             implements ConverterFactory<String, Enum> {
 

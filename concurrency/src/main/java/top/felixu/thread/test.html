@@ -10,9 +10,42 @@
 <body>
 
 <style>
-    .btn {background:#f10215;width:100px;height:30px;text-align:center;line-height:30px;border:none;color:#fff;}
-    .popup-dom {position:fixed;width:100%;height:100%;top:0;left:0;z-index:999;display:none;}
-    .popup-tips {position:absolute;top:0;right:0;left:0;bottom:0;width:200px;height:38px;line-height:38px;margin:auto;background:#000000;opacity:0.6;color:#fff;text-align:center;border-radius:3px;}
+    .btn {
+        background: #f10215;
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        border: none;
+        color: #fff;
+    }
+
+    .popup-dom {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        display: none;
+    }
+
+    .popup-tips {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 200px;
+        height: 38px;
+        line-height: 38px;
+        margin: auto;
+        background: #000000;
+        opacity: 0.6;
+        color: #fff;
+        text-align: center;
+        border-radius: 3px;
+    }
 </style>
 
 <div class="wrapper">
@@ -21,14 +54,14 @@
 
 <script>
     $(function () {
-        $(".btn").bind("click",function () {
+        $(".btn").bind("click", function () {
             tips("已复制");
         })
 
         function tips(text) {
             $(".popup-dom").remove();
-            var html="<div class=\"popup-dom\">\n" +
-                "     <div class=\"popup-tips\">"+text+"</div>\n" +
+            var html = "<div class=\"popup-dom\">\n" +
+                "     <div class=\"popup-tips\">" + text + "</div>\n" +
                 "</div>"
             $("body").append(html);
             $(".popup-dom").slideToggle();

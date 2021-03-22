@@ -33,12 +33,12 @@ class TestController {
 //    }
 
     @GetMapping(value = ["/test2"], headers = ["\${version:}=1.0"])
-    fun test2() : RespDTO<String> {
+    fun test2(): RespDTO<String> {
         return RespDTO.onSuc("调用版本 1")
     }
 
     @GetMapping(value = ["/test2"], headers = ["\${version:}=2.0"])
-    fun test3() : RespDTO<String> {
+    fun test3(): RespDTO<String> {
         return RespDTO.onSuc("调用版本 2")
     }
 }

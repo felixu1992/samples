@@ -10,13 +10,14 @@ import java.lang.annotation.*;
  * @date 2019.07.23
  */
 
-@Target({ ElementType.METHOD, ElementType.TYPE })
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface TargetDataSource {
 
     /**
      * 指定的数据源id
+     *
      * @return 指定的数据源id
      */
     String name() default "";

@@ -9,13 +9,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *  Generates relaxed name variations from a given source.
+ * Generates relaxed name variations from a given source.
  *
  * @author Phillip Webb
  * @author Dave Syer
  * @author felixu
  * @date 2019.07.23
- *
  * @see RelaxedDataBinder
  * @see RelaxedPropertyResolver
  */
@@ -32,8 +31,9 @@ public final class RelaxedNames implements Iterable<String> {
 
     /**
      * Create a new {@link RelaxedNames} instance.
+     *
      * @param name the source name. For the maximum number of variations specify the name
-     * using dashed notation (e.g. {@literal my-property-name}
+     *             using dashed notation (e.g. {@literal my-property-name}
      */
     public RelaxedNames(String name) {
         this.name = (name == null ? "" : name);
@@ -66,7 +66,6 @@ public final class RelaxedNames implements Iterable<String> {
     enum Variation {
 
         NONE {
-
             @Override
             public String apply(String value) {
                 return value;
@@ -75,7 +74,6 @@ public final class RelaxedNames implements Iterable<String> {
         },
 
         LOWERCASE {
-
             @Override
             public String apply(String value) {
                 return value.isEmpty() ? value : value.toLowerCase();
@@ -84,7 +82,6 @@ public final class RelaxedNames implements Iterable<String> {
         },
 
         UPPERCASE {
-
             @Override
             public String apply(String value) {
                 return value.isEmpty() ? value : value.toUpperCase();
@@ -102,7 +99,6 @@ public final class RelaxedNames implements Iterable<String> {
     enum Manipulation {
 
         NONE {
-
             @Override
             public String apply(String value) {
                 return value;
@@ -111,7 +107,6 @@ public final class RelaxedNames implements Iterable<String> {
         },
 
         HYPHEN_TO_UNDERSCORE {
-
             @Override
             public String apply(String value) {
                 return value.indexOf('-') != -1 ? value.replace('-', '_') : value;
@@ -120,7 +115,6 @@ public final class RelaxedNames implements Iterable<String> {
         },
 
         UNDERSCORE_TO_PERIOD {
-
             @Override
             public String apply(String value) {
                 return value.indexOf('_') != -1 ? value.replace('_', '.') : value;
@@ -129,7 +123,6 @@ public final class RelaxedNames implements Iterable<String> {
         },
 
         PERIOD_TO_UNDERSCORE {
-
             @Override
             public String apply(String value) {
                 return value.indexOf('.') != -1 ? value.replace('.', '_') : value;
@@ -138,7 +131,6 @@ public final class RelaxedNames implements Iterable<String> {
         },
 
         CAMELCASE_TO_UNDERSCORE {
-
             @Override
             public String apply(String value) {
                 if (value.isEmpty()) {
@@ -161,7 +153,6 @@ public final class RelaxedNames implements Iterable<String> {
         },
 
         CAMELCASE_TO_HYPHEN {
-
             @Override
             public String apply(String value) {
                 if (value.isEmpty()) {
@@ -184,7 +175,6 @@ public final class RelaxedNames implements Iterable<String> {
         },
 
         SEPARATED_TO_CAMELCASE {
-
             @Override
             public String apply(String value) {
                 return separatedToCamelCase(value, false);
@@ -193,7 +183,6 @@ public final class RelaxedNames implements Iterable<String> {
         },
 
         CASE_INSENSITIVE_SEPARATED_TO_CAMELCASE {
-
             @Override
             public String apply(String value) {
                 return separatedToCamelCase(value, true);
@@ -201,7 +190,7 @@ public final class RelaxedNames implements Iterable<String> {
 
         };
 
-        private static final char[] SUFFIXES = new char[] { '_', '-', '.' };
+        private static final char[] SUFFIXES = new char[]{'_', '-', '.'};
 
         public abstract String apply(String value);
 
@@ -230,6 +219,7 @@ public final class RelaxedNames implements Iterable<String> {
 
     /**
      * Return a {@link RelaxedNames} for the given source camelCase source name.
+     *
      * @param name the source name in camelCase
      * @return the relaxed names
      */

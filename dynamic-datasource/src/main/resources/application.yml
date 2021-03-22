@@ -22,12 +22,12 @@ spring:
 # DynamicDataSource
 test:
   datasource:
-  - id: ds1
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test2?useUnicode=true&characterEncoding=utf8&useSSL=false
-    username: root
-    password: felix19920320
-    type: com.alibaba.druid.pool.DruidDataSource
+    - id: ds1
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test2?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: felix19920320
+      type: com.alibaba.druid.pool.DruidDataSource
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
 

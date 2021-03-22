@@ -11,7 +11,7 @@ import java.util.stream.Collectors
  * @author felixu
  * @since 2020.08.13
  */
-data class RespDTO<T> (val code: Int, val message: String, val data: T?): Serializable {
+data class RespDTO<T>(val code: Int, val message: String, val data: T?) : Serializable {
     companion object {
 
         fun <T> onSuc(): RespDTO<T> {

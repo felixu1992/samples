@@ -3,6 +3,7 @@ package top.felixu.ext;
 import org.springframework.core.env.EnumerablePropertySource;
 import org.springframework.core.env.PropertySource;
 import org.springframework.core.env.PropertySources;
+
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -13,7 +14,6 @@ import java.util.Map;
  * @author Dave Syer
  * @author felixu
  * @date 2019.07.23
- *
  * @see PropertySource
  * @see PropertySources
  */
@@ -23,8 +23,9 @@ public abstract class PropertySourceUtils {
     /**
      * Return a Map of all values from the specified {@link PropertySources} that start
      * with a particular key.
+     *
      * @param propertySources the property sources to scan
-     * @param keyPrefix the key prefixes to test
+     * @param keyPrefix       the key prefixes to test
      * @return a map of all sub properties starting with the specified key prefixes.
      * @see PropertySourceUtils#getSubProperties(PropertySources, String, String)
      */
@@ -36,10 +37,11 @@ public abstract class PropertySourceUtils {
     /**
      * Return a Map of all values from the specified {@link PropertySources} that start
      * with a particular key.
+     *
      * @param propertySources the property sources to scan
-     * @param rootPrefix a root prefix to be prepended to the keyPrefix (can be
-     * {@code null})
-     * @param keyPrefix the key prefixes to test
+     * @param rootPrefix      a root prefix to be prepended to the keyPrefix (can be
+     *                        {@code null})
+     * @param keyPrefix       the key prefixes to test
      * @return a map of all sub properties starting with the specified key prefixes.
      * @see #getSubProperties(PropertySources, String, String)
      */

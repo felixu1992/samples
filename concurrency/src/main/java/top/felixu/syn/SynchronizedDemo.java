@@ -6,12 +6,12 @@ package top.felixu.syn;
  */
 public class SynchronizedDemo {
 
-    public synchronized void test1(){
+    public synchronized void test1() {
 
     }
 
-    public void test2(){
-        synchronized (this){
+    public void test2() {
+        synchronized (this) {
 
         }
     }

@@ -52,7 +52,7 @@ public class DynamicDataSourceContextHolder {
      * @param dataSourceId 指定的数据源id
      * @return 是否被加载
      */
-    public static boolean containsDataSource(String dataSourceId){
+    public static boolean containsDataSource(String dataSourceId) {
         return DATA_SOURCE_IDS.contains(dataSourceId);
     }
 }

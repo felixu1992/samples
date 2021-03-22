@@ -1,5 +1,6 @@
 package top.felixu.controller
 
+import org.springframework.data.domain.Page
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 import top.felixu.dto.RespDTO
@@ -23,5 +24,10 @@ class EmployeeController(val employeeService: EmployeeService) {
     fun addEmployee(@RequestBody @Validated employee: Employee): RespDTO<Any> {
         employeeService.addEmployee(employee)
         return RespDTO.onSuc()
+    }
+
+    @GetMapping("/page")
+    fun page(): RespDTO<Page<Employee>> {
+        return RespDTO.onSuc(employeeService.findAll())
     }
 }

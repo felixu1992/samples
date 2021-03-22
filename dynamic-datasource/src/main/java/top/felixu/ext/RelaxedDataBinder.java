@@ -25,7 +25,6 @@ import java.util.*;
  * @author Stephane Nicoll
  * @author Andy Wilkinson
  * @date 2019.07.23
- *
  * @see RelaxedNames
  */
 public class RelaxedDataBinder extends DataBinder {
@@ -40,6 +39,7 @@ public class RelaxedDataBinder extends DataBinder {
 
     /**
      * Create a new {@link RelaxedDataBinder} instance.
+     *
      * @param target the target into which properties are bound
      */
     public RelaxedDataBinder(Object target) {
@@ -48,7 +48,8 @@ public class RelaxedDataBinder extends DataBinder {
 
     /**
      * Create a new {@link RelaxedDataBinder} instance.
-     * @param target the target into which properties are bound
+     *
+     * @param target     the target into which properties are bound
      * @param namePrefix An optional prefix to be used when reading properties
      */
     public RelaxedDataBinder(Object target, String namePrefix) {
@@ -68,6 +69,7 @@ public class RelaxedDataBinder extends DataBinder {
      * Flag to disable binding of nested properties (i.e. those with period separators in
      * their paths). Can be useful to disable this if the name prefix is empty and you
      * don't want to ignore unknown fields.
+     *
      * @param ignoreNestedProperties the flag to set (default false)
      */
     public void setIgnoreNestedProperties(boolean ignoreNestedProperties) {
@@ -76,6 +78,7 @@ public class RelaxedDataBinder extends DataBinder {
 
     /**
      * Set name aliases.
+     *
      * @param aliases a map of property name to aliases
      */
     public void setNameAliases(Map<String, List<String>> aliases) {
@@ -84,7 +87,8 @@ public class RelaxedDataBinder extends DataBinder {
 
     /**
      * Add aliases to the {@link DataBinder}.
-     * @param name the property name to alias
+     *
+     * @param name  the property name to alias
      * @param alias aliases for the property names
      * @return this instance
      */
@@ -105,8 +109,9 @@ public class RelaxedDataBinder extends DataBinder {
      * map keys. Also creates new maps for properties of map type that are null (assuming
      * all maps are potentially nested). The standard bracket {@code[...]} dereferencing
      * is also accepted.
+     *
      * @param propertyValues the property values
-     * @param target the target object
+     * @param target         the target object
      * @return modified property values
      */
     private MutablePropertyValues modifyProperties(MutablePropertyValues propertyValues,
@@ -147,6 +152,7 @@ public class RelaxedDataBinder extends DataBinder {
      * significant for other property names (it shouldn't be but who knows what people
      * might be relying on, e.g. HSQL has a JDBCXADataSource where "databaseName" is a
      * synonym for "url").
+     *
      * @param names the names to sort
      */
     private void sortPropertyNames(List<String> names) {
@@ -181,7 +187,7 @@ public class RelaxedDataBinder extends DataBinder {
         for (PropertyValue value : propertyValues.getPropertyValues()) {
             String name = value.getName();
             for (String prefix : new RelaxedNames(stripLastDot(this.namePrefix))) {
-                for (String separator : new String[] { ".", "_" }) {
+                for (String separator : new String[]{".", "_"}) {
                     String candidate = (StringUtils.hasLength(prefix) ? prefix + separator
                             : prefix);
                     if (name.startsWith(candidate)) {
@@ -223,8 +229,9 @@ public class RelaxedDataBinder extends DataBinder {
      * <li>Fuzzy matching can be employed for bean property names</li>
      * <li>Period separators can be used instead of indexing ([...]) for map keys</li>
      * </ul>
+     *
      * @param wrapper a bean wrapper for the object to bind
-     * @param path the bean path to bind
+     * @param path    the bean path to bind
      * @return a transformed path with correct bean wrapper syntax
      */
     protected String normalizePath(BeanWrapper wrapper, String path) {
@@ -257,19 +264,16 @@ public class RelaxedDataBinder extends DataBinder {
             }
             path.mapIndex(index);
             extendMapIfNecessary(wrapper, path, index);
-        }
-        else if (descriptor.isCollection()) {
+        } else if (descriptor.isCollection()) {
             extendCollectionIfNecessary(wrapper, path, index);
-        }
-        else if (descriptor.getType().equals(Object.class)) {
+        } else if (descriptor.getType().equals(Object.class)) {
             if (isBlanked(wrapper, name, path.name(index))) {
                 path.collapseKeys(index);
             }
             path.mapIndex(index);
             if (path.isLastNode(index)) {
                 wrapper.setPropertyValue(path.toString(), BLANK);
-            }
-            else {
+            } else {
                 String next = path.prefix(index + 1);
                 if (wrapper.getPropertyValue(next) == null) {
                     wrapper.setPropertyValue(next, new LinkedHashMap<String, Object>());
@@ -392,8 +396,7 @@ public class RelaxedDataBinder extends DataBinder {
                     if (target.getPropertyType(joinString(prefix, candidate)) != null) {
                         return candidate;
                     }
-                }
-                catch (InvalidPropertyException ex) {
+                } catch (InvalidPropertyException ex) {
                     // swallow and continue
                 }
             }
@@ -492,8 +495,7 @@ public class RelaxedDataBinder extends DataBinder {
                     String sub = current.substring(startRef + 1, endRef);
                     if (sub.matches("[0-9]+")) {
                         nodes.add(new ArrayIndexNode(sub));
-                    }
-                    else {
+                    } else {
                         nodes.add(new MapIndexNode(sub));
                     }
                 }
@@ -669,8 +671,7 @@ public class RelaxedDataBinder extends DataBinder {
         public void setPropertyValue(PropertyValue pv) throws BeansException {
             try {
                 super.setPropertyValue(pv);
-            }
-            catch (NotWritablePropertyException ex) {
+            } catch (NotWritablePropertyException ex) {
                 PropertyOrigin origin = OriginCapablePropertyValue.getOrigin(pv);
                 if (isBenign(origin)) {
                     logger.debug("Ignoring benign property binding failure", ex);
